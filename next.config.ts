@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'media.rawg.io'
+      },
+      {
+        protocol: 'https',
         hostname: 'assets.tina.io',
         port: '',
       },
