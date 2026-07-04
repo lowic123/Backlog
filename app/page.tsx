@@ -1,18 +1,14 @@
-import React from "react";
-import client from "@/tina/__generated__/client";
-import Layout from "@/components/layout/layout";
-import ClientPage from "./[...urlSegments]/client-page";
+import { client } from "@/tina/__generated__/client";
+import HomeClient from "./home-client";
 
-export const revalidate = 300;
-
-export default async function Home() {
-  const data = await client.queries.page({
-    relativePath: `home.mdx`,
+export default async function HomePage(){
+  const res = await client.queries.homePage({
+    relativePath: "home-page.json"
   });
-
   return (
-    <Layout rawPageData={data}>
-      <ClientPage {...data} />
-    </Layout>
-  );
+  <HomeClient
+    data={res.data}
+    variables={res.variables}
+    query={res.query} 
+  />);
 }
