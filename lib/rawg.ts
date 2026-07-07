@@ -16,6 +16,7 @@ export type RawgGame = {
   rating: number;
   released: string | null;
   genres: { id: number; name: string }[];
+  description: string
 };
 
 export async function searchGames(query: string): Promise<RawgGame[]> {

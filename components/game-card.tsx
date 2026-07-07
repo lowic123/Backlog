@@ -6,15 +6,7 @@ export default function GameCard({ game }: { game: RawgGame }) {
   return (
     <Link
       href={`/games/${game.slug}`}
-      style={{
-        display: "block",
-        background: "var(--surface-1)",
-        border: "0.5px solid var(--border)",
-        borderRadius: "12px",
-        overflow: "hidden",
-        textDecoration: "none",
-        transition: "border-color 0.15s",
-      }}
+      className="block bg-[var(--surface-1)] border-[0.5px] border-[var(--border)] rounded-xl overflow-hidden no-underline transition-colors duration-150"
     >
       <div style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}>
         {game.background_image ? (
