@@ -1,11 +1,5 @@
 import { defineConfig } from "tinacms";
 import nextConfig from '../next.config'
-
-// import Post from "./collection/post";
-// import Global from "./collection/global";
-// import Author from "./collection/author";
-// import Page from "./collection/page";
-// import Tag from "./collection/tag";
 import Favorite from './collection/favorite';
 import HomePage from './collection/home-page';
 
