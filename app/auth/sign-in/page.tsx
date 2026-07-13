@@ -1,6 +1,5 @@
 ﻿'use client'
 import { useState } from 'react'
-import AuthForm from '@/components/auth-form'
 import {signInWithEmail } from '@/actions/auth'
 import { Button } from "@/components/ui/button"
 
