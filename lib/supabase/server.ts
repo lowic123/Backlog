@@ -1,26 +1,26 @@
 'use server'
-import {createClient} from "@supabase/supabase-js"
+import { createServerClient } from "@supabase/ssr"
+import { cookies } from "next/headers"
 
-const supabase = createClient("https://cwrkkhexgvydpafaxals.supabase.co", process.env.NEXT_PUBLIC_SB_PUBLISHABLE || "")
+export async function createClient(){
+    const cookieStore = await cookies()
 
-export async function signUpNewUser(){
-    const { data, error } = await supabase.auth.signUp({
-        email: 'valid.email@supabase.co', 
-        password: 'example-password',
-    })
-    if(error)
-        console.error('sb auth error: ', error.message)
-    else
-        console.log('user successfully signed up! ', data)
+    return createServerClient(
+        process.env.NEXT_PUBLIC_SB_URL!,
+        process.env.NEXT_PUBLIC_SB_PUBLISHABLE!,
+        {
+            cookies:{
+                getAll(){
+                    return cookieStore.getAll()
+                },
+                setAll(cookiesToSet, _headers){
+                    try{
+                        cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options))
+                    }catch{}
+                },
+            },
+        }
+    )
 }
 
-export async function signInWithEmail(){
-    const { data, error } = await supabase.auth.signInWithPassword({
-        email: 'valid.email@supabase.co',
-        password: 'example-password'
-    })
-    if(error)
-        console.error('sb auth error: ', error.message)
-    else
-        console.log('user successfully signed in! ', data)
-}
+

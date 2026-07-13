@@ -67,13 +67,13 @@ export default function HomeClient({data,variables, query} : Props) {
   return (
     <main style={{ maxWidth: "1100px", margin: "0 auto", padding: "2rem 1.5rem" }}>
       <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
-        <h1 data-tina-field={tinaField(page,"title")} style={{ fontSize: "2rem", fontWeight: 500, marginBottom: "0.5rem" }}>
+        <h1 data-tina-field={tinaField(page, "title")} className='mt-8 text-balance text-5xl font-semibold tracking-tight text-primary sm:text-7xl'>
           {page.title}
         </h1>
-        <p data-tina-field={tinaField(page, "subtitle")} style={{ color: "var(--text-secondary)", marginBottom: "1.5rem" }}>
+        <p data-tina-field={tinaField(page, "subtitle")} className='text-primary mb-6'>
           {page.subtitle}
         </p>
-        <div style={{ maxWidth: "480px", margin: "0 auto" }}>
+        <div className='w-1/2 mx-auto'>
           <input
             data-tina-field={tinaField(page,"searchPlaceholder")}
             type="text"
