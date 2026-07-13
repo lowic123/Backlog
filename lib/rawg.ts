@@ -3,7 +3,7 @@ const BASE_URL = "https://api.rawg.io/api";
 function apiUrl(path: string, params: Record<string, string> = {}) {
   const key = process.env.RAWG_API_KEY;
   const url = new URL(`${BASE_URL}${path}`);
-  url.searchParams.set("key", key ?? "");
+  url.searchParams.set("key", key ?? "");   
   Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
   return url.toString();
 }

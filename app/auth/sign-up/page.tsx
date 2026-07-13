@@ -1,8 +1,8 @@
-﻿'use client'
+'use client'
 import AuthForm from '@/components/auth-form'
 
 export default function SignInPage() { 
     return (
-        <AuthForm isSignIn={true}/>
+        <AuthForm isSignIn={false}/>
     )
 }
