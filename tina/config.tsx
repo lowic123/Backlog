@@ -2,6 +2,7 @@ import { defineConfig } from "tinacms";
 import nextConfig from '../next.config'
 import Favorite from './collection/favorite';
 import HomePage from './collection/home-page';
+import AboutPage from './collection/about';
 
 const config = defineConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
@@ -29,7 +30,7 @@ const config = defineConfig({
   },
   schema: {
     //collections: [Page, Post, Author, Tag, Global],
-    collections: [Favorite, HomePage],
+    collections: [Favorite, HomePage, AboutPage],
   },
 });
 
