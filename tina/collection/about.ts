@@ -1,6 +1,6 @@
 import type { Collection } from 'tinacms'
 
-const aboutPage: Collection = {
+const AboutPage: Collection = {
     name: "aboutPage",
     label : "About page",
     path: "content/pages",
@@ -24,3 +24,4 @@ const aboutPage: Collection = {
         },
     ]
 }
+export default AboutPage;
