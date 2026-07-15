@@ -5,6 +5,18 @@ const AboutPage: Collection = {
     label : "About page",
     path: "content/pages",
     format: "mdx",
+    ui: {
+        allowedActions: {
+            create: false,
+            delete: false,
+        },
+        router: ({document}) =>{
+        if(document._sys.filename === "about-page"){
+            return "/about;"
+        }
+        return undefined;
+        },
+    },
     fields : [
         {
             type: "string",
@@ -19,8 +31,9 @@ const AboutPage: Collection = {
         },
         {
             type: "string",
-            name: "aboutUsText",
-            label: "About Us Text",
+            name: "body",
+            label: "About Us Body",
+            isBody: true
         },
     ]
 }
