@@ -7,8 +7,6 @@ const AboutPage: Collection = {
     format: "mdx",
     ui: {
         allowedActions: {
-            create: false,
-            delete: false,
         },
         router: ({document}) =>{
         if(document._sys.filename === "about-page"){
