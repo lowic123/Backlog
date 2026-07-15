@@ -12,7 +12,7 @@ const AboutPage: Collection = {
         },
         router: ({document}) =>{
         if(document._sys.filename === "about-page"){
-            return "/about;"
+            return "/about"
         }
         return undefined;
         },
@@ -30,7 +30,7 @@ const AboutPage: Collection = {
             label: "Hero subtitle",
         },
         {
-            type: "string",
+            type: "rich-text",
             name: "body",
             label: "About Us Body",
             isBody: true
