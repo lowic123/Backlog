@@ -1,22 +1,23 @@
 'use client'
 
-import { useState } from 'react';
-import { SectionTabLabel } from './SectionTabLabel'
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
-interface SectionTabProps{
-    sections: string[]
-}
-
-export default function SectionTabs({sections} : SectionTabProps){
-    const [activeSection, setActiveSection] = useState(sections[0]);
-
+export default function SectionTabs({sections} : {sections: string[]}){
+    const searchParams = useSearchParams();
+    const activeSection = searchParams.get('tab') || sections[0];
     return (
         <div className='flex flex-row pt-12 w-full'>
-                    {sections.map((section) =>{ 
-                        return (
-                            <SectionTabLabel key={section} section={section} isActive={activeSection === section} onClick={() => {setActiveSection(section)}}/>
-                        )
-                    })}
+                    {sections.map((section) => (
+                        <Link
+                            key={section}
+                            href={`?tab=${section}`}
+                            scroll={false}
+                            className={`w-1/3 p-2 text-center ${activeSection === section? 'border-b-2 bordedr-primary font-bold' : ''}`}
+                        >
+                            {section}
+                        </Link>
+                    ))}
                 </div>
     )
 }
