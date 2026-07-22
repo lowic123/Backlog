@@ -6,7 +6,6 @@ import Link from "next/link"
 
 
 export default function SignUpPage() { 
-    const [displayName, setDisplayName] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

@@ -32,7 +32,7 @@ export default function SignInPage() {
                     <Button type='submit'>
                         Sign In
                     </Button>
-                    <Button variant='link'>
+                    <Button variant='link'> 
                         <Link href='/auth/sign-up'>
                             No Account? Sign Up
                         </Link>
