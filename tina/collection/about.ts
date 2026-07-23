@@ -4,7 +4,7 @@ const AboutPage: Collection = {
     name: "aboutPage",
     label : "About page",
     path: "content/pages",
-    format: "md",
+    format: "mdx",
     ui: {
         allowedActions: {
         },
