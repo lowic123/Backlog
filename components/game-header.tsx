@@ -1,11 +1,12 @@
 import Image from "next/image";
-import type {RawgGame} from "@/lib/rawg"
+import type {IgdbGame} from "@/lib/igdb"
+import { coverImageUrl } from "@/lib/igdb"
 
-export default function GameHeader({game} : {game : RawgGame}){
+export default function GameHeader({game} : {game : IgdbGame}){
     return(
         <div className='relative w-11/12 mt-4 mx-auto content-center h-64 md:h-96'>
             <Image
-            src={game.background_image || ""}
+            src={coverImageUrl(game.cover!.image_id, '1080p') || ""}
             alt={game.name}
             fill
             className='object-cover rounded-2xl'

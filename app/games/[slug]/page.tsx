@@ -1,4 +1,4 @@
-import {getGame} from "@/lib/rawg"
+import {getGame} from "@/lib/igdb"
 import GameHeader from "@/components/game-header"
 
 type Props = {
@@ -14,7 +14,7 @@ export default async function GamePage({params} : Props) {
             <GameHeader game={game}/>
             <div 
                 className='prose prose-invert max-w-none w-5/6 justify-self-center mt-5 p-10 bg-primary rounded-2xl text-secondary'
-                dangerouslySetInnerHTML={{__html: game.description}}
+                dangerouslySetInnerHTML={{__html: game.summary}}
             />
         </div>
     )
