@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useTina, tinaField } from "tinacms/dist/react"
 import GameCard from "@/components/game-card";
-import type { RawgGame } from "@/lib/rawg";
+import type { RawgGame } from "@/lib/igdb";
 import type { HomePageQuery, HomePageQueryVariables } from "@/tina/__generated__/types"
 
 type Props ={

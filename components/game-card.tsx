@@ -1,17 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { RawgGame } from "@/lib/rawg";
+import type { IgdbGame } from "@/lib/igdb";
+import { coverImageUrl } from "@/lib/igdb"
 
-export default function GameCard({ game }: { game: RawgGame }) {
+export default function GameCard({ game }: { game: IgdbGame }) {
   return (
     <Link
       href={`/games/${game.slug}`}
       className="block bg-[var(--surface-1)] border-[0.5px] border-[var(--border)] rounded-xl overflow-hidden no-underline transition-colors duration-150"
     >
       <div style={{ position: "relative", width: "100%", aspectRatio: "16/9" }}>
-        {game.background_image ? (
+        {game.cover?.image_id ? (
           <Image
-            src={game.background_image}
+            src={coverImageUrl(game.cover.image_id, '1080p')}
             alt={game.name}
             fill
             style={{ objectFit: "cover" }}
@@ -52,18 +53,18 @@ export default function GameCard({ game }: { game: RawgGame }) {
           gap: "10px",
           marginTop: "6px",
         }}>
-          {game.rating > 0 && (
+          {game.rating! > 0 && (
             <span style={{ fontSize: "12px", color: "var(--text-secondary)" }}>
-              ★ {game.rating.toFixed(1)}
+              ★ {game.rating!.toFixed(1)}
             </span>
           )}
-          {game.released && (
+          {game.first_release_date && (
             <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>
-              {game.released.slice(0, 4)}
+              {new Date(game.first_release_date * 1000).getFullYear()}
             </span>
           )}
         </div>
-        {game.genres.length > 0 && (
+        {game.genres?.length > 0 && (
           <div style={{ display: "flex", gap: "6px", marginTop: "8px", flexWrap: "wrap" }}>
             {game.genres.slice(0, 2).map((g) => (
               <span
