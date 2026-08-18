@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useTina, tinaField } from "tinacms/dist/react"
 import GameCard from "@/components/game-card";
-import type { RawgGame } from "@/lib/igdb";
+import type { IgdbGame } from "@/lib/igdb";
 import type { HomePageQuery, HomePageQueryVariables } from "@/tina/__generated__/types"
 
 type Props ={
@@ -20,7 +20,7 @@ export default function HomeClient({data,variables, query} : Props) {
   
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [games, setGames] = useState<RawgGame[]>([]);
+  const [games, setGames] = useState<IgdbGame[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
